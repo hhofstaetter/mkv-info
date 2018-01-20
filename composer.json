@@ -1,0 +1,16 @@
+{
+    "name": "hhofstaetter/mkv-info",
+    "type": "library",
+    "description": "Reads info from mkv files with mkvtoolnix.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hannes Hofstätter",
+            "email": "hannes.hofstaetter@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "symfony/process": ">=3.4",
+    }
+}
