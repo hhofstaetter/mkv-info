@@ -1,8 +1,6 @@
 <?php
 
 namespace Hhofstaetter\MkvInfo;
-
-
 class MkvInfoContainer {
 
     /**
@@ -57,7 +55,12 @@ class MkvInfoContainer {
             return;
         }
         foreach ($mkvInfo['tracks'] as $trackInfo) {
-            $track = new MkvInfoTrackContainer($trackInfo['type'], $trackInfo['id'], $trackInfo['codec'], $trackInfo['properties']);
+            $track = new MkvInfoTrackContainer(
+                $trackInfo['type'],
+                $trackInfo['id'],
+                $trackInfo['codec'],
+                $trackInfo['properties']
+            );
             if ($track->getType() === 'video') {
                 $this->videoTracks[] = $track;
             }
@@ -68,6 +71,55 @@ class MkvInfoContainer {
                 $this->subtitleTracks[] = $track;
             }
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getFilename(): string {
+        return $this->filename;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPath(): string {
+        return $this->path;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDuration(): ?int {
+        return $this->duration;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContainerType(): string {
+        return $this->containerType;
+    }
+
+    /**
+     * @return MkvInfoTrackContainer[]
+     */
+    public function getAudioTracks(): array {
+        return $this->audioTracks;
+    }
+
+    /**
+     * @return MkvInfoTrackContainer[]
+     */
+    public function getVideoTracks(): array {
+        return $this->videoTracks;
+    }
+
+    /**
+     * @return MkvInfoTrackContainer[]
+     */
+    public function getSubtitleTracks(): array {
+        return $this->subtitleTracks;
     }
 
 }

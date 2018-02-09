@@ -23,7 +23,7 @@ class MkvInfoTrackContainer {
     protected $codec;
 
     /**
-     * @var array
+     * @var string[]
      */
     protected $properties;
 
